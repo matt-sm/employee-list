@@ -1,47 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
 import withRoot from '../withRoot';
-import EmployeeCard from '../components/EmployeeCard'
+import Header from '../components/Header'
+import EmployeeList from '../components/EmployeeList'
+import {loadCompany} from '../actions'
 
 const styles = theme => ({
   root: {
-    paddingLeft: theme.spacing.unit * 20,
-    paddingRight: theme.spacing.unit * 20
-  },
-  heading: {
-    paddingTop: theme.spacing.unit * 10,
-  },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing.unit * 20,
+      paddingRight: theme.spacing.unit * 20
+    }
+  }
 });
 
 class Index extends React.Component {
+  componentDidMount() {
+    this.props.loadCompany()
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, employees, companyInfo } = this.props;
 
     return (
       <div className={classes.root}>
-      <AppBar position="sticky" color="secondary">
-        <Toolbar>
-          <Typography variant="title" color="inherit">
-            Company Name
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Typography variant="display1" gutterBottom align="left" className={classes.heading}>
-        Our Employees
-      </Typography>
-      <Divider />
-      <Grid container spacing={24} style={{padding: 24}}>
-        <Grid item xs={12} sm={6} lg={4} xl={3}>
-          <EmployeeCard />
-        </Grid>
-      </Grid>      
+        <header>
+          <Header companyInfo={companyInfo}/>
+        </header>
+        <main>
+          <EmployeeList employees={employees}/>
+        </main>
       </div>
     );
   }
@@ -51,4 +42,14 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(Index));
+const mapStateToProps = state => ({
+  loading: state.loading,
+  companyInfo: state.companyInfo,
+  employees: state.employees
+})
+
+const mapDispatchToProps = dispatch => ({
+  loadCompany: () => dispatch(loadCompany())
+})
+
+export default withRoot(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles) (Index)));
