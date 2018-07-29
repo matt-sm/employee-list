@@ -1,21 +1,22 @@
-# Create React App example
+# Simple list with details
 
 ## How to use
-
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
-
-```bash
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
-```
 
 Install it and run:
 
 ```bash
-npm install
-npm run start
+npm i
+npm start
 ```
 
-## The idea behind the example
+## The idea behind the solution
 
-[Create React App](https://github.com/facebookincubator/create-react-app) with no build configuration.
+- [Create React App](https://github.com/facebookincubator/create-react-app) with no build configuration.
+- [Material UI](https://material-ui.com/) for base stylesheet and components.
+- [Redux](https://redux.js.org) for state management.
+- [CSS in JS](https://material-ui.com/customization/css-in-js/) for custom styles.
+
+## TODO
+
+- Implement filtering/search.
+- Add unit tests.

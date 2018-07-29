@@ -5,12 +5,12 @@ export const loadCompany = () => {
   return { type: GET_COMPANY, data }
 }
 
-export const handleOpenModal = employee => dispatch => {
+export const openModal = employee => dispatch => {
   dispatch(setModalData(employee))
   dispatch(setModalVisibility(true))
 }
 
-export const handleCloseModal = employee => dispatch => {
+export const closeModal = employee => dispatch => {
   dispatch(setModalVisibility(false))
 }
 

@@ -7,7 +7,7 @@ import withRoot from '../withRoot'
 import Header from '../components/Header'
 import EmployeeList from '../components/EmployeeList'
 import EmployeeModal from '../components/EmployeeModal'
-import { loadCompany, handleOpenModal, handleCloseModal } from '../actions'
+import { loadCompany, openModal, closeModal } from '../actions'
 
 const styles = theme => ({
   root: {
@@ -59,8 +59,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   loadCompany: () => dispatch(loadCompany()),
-  handleOpen: employee => dispatch(handleOpenModal(employee)),
-  handleClose: () => dispatch(handleCloseModal())
+  handleOpen: employee => dispatch(openModal(employee)),
+  handleClose: () => dispatch(closeModal())
 })
 
 export default withRoot(
