@@ -28,7 +28,7 @@ const EmployeeCard = props => {
           <Typography gutterBottom variant="headline" component="h2">
             {`${employee.firstName} ${employee.lastName}`}
           </Typography>
-          <Typography component="p" noWrap="true">
+          <Typography component="p" noWrap={true}>
             {employee.bio}
           </Typography>
         </CardContent>

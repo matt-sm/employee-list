@@ -54,13 +54,13 @@ const EmployeeModal = props => {
           </Grid>
           <Grid container spacing={24}>
             <Grid item xs={6}>
-              <Typography component="p" id="employee-modal-description">
+              <Typography component="p">
                 {employee.jobTitle}
               </Typography>
-              <Typography component="p" id="employee-modal-description">
+              <Typography component="p">
                 {employee.age}
               </Typography>
-              <Typography component="p" id="employee-modal-description">
+              <Typography component="p">
                 {new Date(employee.dateJoined).toLocaleDateString()}
               </Typography>
             </Grid>
