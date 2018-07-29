@@ -28,7 +28,9 @@ const EmployeeCard = props => {
           <Typography gutterBottom variant="headline" component="h2">
             {`${employee.firstName} ${employee.lastName}`}
           </Typography>
-          <Typography component="p">{employee.bio}</Typography>
+          <Typography component="p" noWrap="true">
+            {employee.bio}
+          </Typography>
         </CardContent>
         <CardActions>
           <Button onClick={() => handleOpen(employee)} size="small" color="primary">
