@@ -1,4 +1,5 @@
-# Simple list with details
+# Material-ui demo
+Demo CRA app using Redux + Material-UI components.
 
 ## How to use
 
